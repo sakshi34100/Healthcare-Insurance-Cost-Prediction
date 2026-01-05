@@ -24,7 +24,7 @@ This project aims to **predict individual insurance charges** using demographic 
 ## 🛠 Project Workflow
 
 ### 1️⃣ Data Collection & Quality Assurance
-- Identified and removed duplicate records *(reduced dataset from 1338 to 1337 rows)*  
+- Identified and removed duplicate records  
 - Used box plots to **identify and handle outliers** in BMI and insurance charges  
 - Improved overall data quality by approximately **20%**  
 - Applied **Label Encoding** to convert categorical variables into model-ready format  
