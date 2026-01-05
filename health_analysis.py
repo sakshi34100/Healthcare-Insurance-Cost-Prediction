@@ -58,7 +58,7 @@ df['region'] = le.fit_transform(df['region'])
 print("\nafter Encoding :")
 print(df.head())
 
-# Ab hum data ko Feature (X) aur Target (y) mein divide karenge
+# Feature (X) & Target (y)  divide 
 X = df.drop(['charges'], axis=1) # Charges ko chhod kar baaki sab "Features" hain
 y = df['charges'] # Sirf Charges hamara "Target" hai jise predict karna hai
 
@@ -114,4 +114,5 @@ feature_names = X.columns
 plt.figure(figsize=(8,6))
 sns.barplot(x=importances, y=feature_names)
 plt.title('which factor cause highest cost?')
+
 plt.show()
