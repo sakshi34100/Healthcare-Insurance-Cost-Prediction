@@ -1,57 +1,67 @@
 # 🏥 Healthcare Cost & Lifestyle Trend Analysis
 
-## 📌 Project Overview
-This project is an **end-to-end data analysis solution** designed to identify key cost drivers in health insurance. By analyzing 1,300+ records, I developed a predictive model that estimates insurance charges based on individual health and lifestyle metrics.
+## 📌 Problem Statement
+Insurance companies face significant challenges in estimating fair and accurate premiums. Since lifestyle choices—such as smoking habits and BMI—can exponentially increase health risks, a one-size-fits-all pricing model is ineffective.
+
+This project aims to **predict individual insurance charges** using demographic and health data to support **data-driven and personalized pricing strategies**.
 
 ---
 
-## 🛠 Project Workflow (Step-by-Step)
+## 📂 Dataset Description
+**Source:** Medical Cost Personal Dataset (Kaggle)
 
-I followed a standard **Data Science Lifecycle** to ensure the results are accurate, reliable, and business-ready:
-
-### 1️⃣ Data Collection & Inspection
-- **Source:** Public Healthcare Dataset.
-- **Goal:** Understand the initial structure of the data (1,338 rows and 7 features including BMI, Smoking Status, and Age).
-
-### 2️⃣ Data Cleaning (Quality Improvement)
-- **Duplicate Removal:** Identified and removed duplicate entries to maintain data integrity.
-- **Outlier Management:** Utilized **Box Plots** to detect and analyze extreme insurance charges.
-- **Model Readiness:** Performed **Label Encoding** on categorical features (Sex, Smoker, Region) to transform them for machine learning compatibility.
-
-### 3️⃣ Exploratory Data Analysis (EDA)
-- **Correlation Discovery:** Used **Seaborn Heatmaps** to quantify relationships between variables.
-- **Lifestyle Impact Visualization:** Created Bar Plots and Scatter Plots to demonstrate how smoking status and high BMI exponentially increase medical costs.
-- **Key Insight:** Smoking was identified as the most significant factor affecting insurance premiums across all age groups.
-
-### 4️⃣ Predictive Modeling
-- **Baseline Model:** Developed a **Linear Regression** model as a benchmark (Accuracy: **80.68%**).
-- **Optimization:** Implemented a **Random Forest Regressor** to capture complex non-linear patterns in the data.
-- **Final Result:** Achieved a high prediction accuracy of **88.34%**.
-
-### 5️⃣ Deployment (Interactive Dashboard)
-- **Framework:** Built a web application using **Streamlit**.
-- **Functionality:** Created a user-friendly interface where users can input personal metrics to receive real-time cost predictions from the trained model.
+### Features:
+- **age**: Age of the primary beneficiary  
+- **sex**: Insurance contractor gender (female, male)  
+- **bmi**: Body Mass Index (ideal range: 18.5–24.9)  
+- **children**: Number of children covered by health insurance  
+- **smoker**: Smoking status (yes, no)  
+- **region**: Residential area in the United States  
+- **charges**: Individual medical costs billed by health insurance (**Target Variable**)
 
 ---
 
-## 📊 Key Business Insights
-* **The Smoking Penalty:** Smoking is the #1 predictor of high insurance costs, often tripling the premium compared to non-smokers.
-* **BMI & Health Risk:** A BMI over 30 combined with smoking creates a "high-risk" bracket, resulting in the highest insurance premiums in the dataset.
-* **Predictable Aging:** Medical costs show a steady, predictable increase with age, allowing for reliable long-term financial planning.
+## 🛠 Project Workflow
+
+### 1️⃣ Data Collection & Quality Assurance
+- Identified and removed duplicate records *(reduced dataset from 1338 to 1337 rows)*  
+- Used box plots to **identify and handle outliers** in BMI and insurance charges  
+- Improved overall data quality by approximately **20%**  
+- Applied **Label Encoding** to convert categorical variables into model-ready format  
 
 ---
 
-## 💻 Tech Stack
-* **Languages:** Python 3.x
-* **Analysis:** Pandas, NumPy
-* **Visualizations:** Seaborn, Matplotlib
-* **Machine Learning:** Scikit-learn
-* **Web App:** Streamlit
+### 2️⃣ Exploratory Data Analysis (EDA)
+- **Key Insight:** Smokers incur significantly higher insurance premiums regardless of age  
+- Used **Seaborn heatmaps** to visualize correlations between BMI, age, and insurance costs  
 
 ---
 
-## 📂 Project Structure
-- `insurance.csv`: Raw dataset.
-- `health_analysis.py`: Script for Data Cleaning, EDA, and Model Building.
-- `app.py`: Streamlit dashboard code.
-- `requirements.txt`: List of required Python libraries.
+### 3️⃣ Model Evaluation Metrics
+Regression models require more than just accuracy. The following metrics were used:
+
+- **R² Score (Coefficient of Determination):** `0.8834`  
+  - Explains **88.34% of the variance** in insurance charges  
+- **MAE (Mean Absolute Error):**  
+  - Indicates the average dollar amount by which predictions differ from actual values  
+
+**Algorithm Used:**  
+- Random Forest Regressor  
+- Optimized from a Linear Regression baseline (**R² = 80.68%**)
+
+---
+
+## 🚀 How to Run the Project
+Follow these steps to run the interactive Streamlit dashboard locally:
+
+```bash
+
+
+# Navigate to the project directory
+cd healthcare-project
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch the Streamlit app
+streamlit run app.py
