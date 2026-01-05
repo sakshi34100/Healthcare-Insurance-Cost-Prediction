@@ -65,3 +65,4 @@ pip install -r requirements.txt
 
 # Launch the Streamlit app
 streamlit run app.py
+![Project Dashboard](dashboard_sample.png)
